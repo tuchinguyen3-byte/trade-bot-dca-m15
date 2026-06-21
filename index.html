@@ -7,7 +7,7 @@
 <meta name="description" content="Bot giao dịch vàng DCA tự động — Profit Factor 1.87, Win Rate 76%, chạy 24/7 không cần giám sát.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -93,10 +93,11 @@
   @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.3)} }
 
   h1 {
+    font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(52px, 9vw, 100px);
     font-weight: 700;
     line-height: 1.08;
-    letter-spacing: -3px;
+    letter-spacing: -2px;
     margin-bottom: 28px;
     animation: fadeInUp .8s .1s ease both;
   }
@@ -155,7 +156,7 @@
   section { padding: 100px 24px; position: relative; }
   .container { max-width: 1100px; margin: 0 auto; }
   .section-tag { display: inline-block; font-size: 14px; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 20px; }
-  .section-title { font-size: clamp(36px, 5.5vw, 64px); font-weight: 700; line-height: 1.1; letter-spacing: -2px; margin-bottom: 20px; }
+  .section-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(36px, 5.5vw, 64px); font-weight: 700; line-height: 1.1; letter-spacing: -1px; margin-bottom: 20px; }
   .section-sub { font-size: 20px; color: var(--muted); max-width: 580px; line-height: 1.7; font-weight: 300; }
 
   /* ====== PROBLEM ====== */
@@ -272,7 +273,7 @@
   /* ====== FINAL CTA ====== */
   .cta-section { background: var(--bg); padding: 120px 24px; text-align: center; position: relative; }
   .cta-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(245,158,11,0.08), transparent 70%); pointer-events: none; }
-  .cta-section h2 { font-size: clamp(42px, 6.5vw, 80px); font-weight: 700; line-height: 1.1; letter-spacing: -2.5px; margin-bottom: 24px; }
+  .cta-section h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(42px, 6.5vw, 80px); font-weight: 700; line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 24px; }
   .cta-section p { font-size: 22px; color: var(--muted); max-width: 540px; margin: 0 auto 52px; font-weight: 300; }
   .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
@@ -320,8 +321,181 @@
     .control-table th, .control-table td { padding: 12px 16px; }
   }
 
+  /* ====== PARTICLES ====== */
+  .hero-particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .hero-particles span {
+    position: absolute; bottom: -10px;
+    width: 2px; height: 2px; border-radius: 50%;
+    background: rgba(245,158,11,0.7);
+    animation: particle-rise linear infinite;
+  }
+  .hero-particles span:nth-child(1)  { left: 8%;  width:2px;  height:2px;  animation-duration:9s;  animation-delay:0s; }
+  .hero-particles span:nth-child(2)  { left: 18%; width:3px;  height:3px;  animation-duration:13s; animation-delay:-4s; }
+  .hero-particles span:nth-child(3)  { left: 30%; width:1.5px;height:1.5px;animation-duration:8s;  animation-delay:-2s; }
+  .hero-particles span:nth-child(4)  { left: 42%; width:2px;  height:2px;  animation-duration:11s; animation-delay:-6s; }
+  .hero-particles span:nth-child(5)  { left: 55%; width:3px;  height:3px;  animation-duration:7s;  animation-delay:-1s; }
+  .hero-particles span:nth-child(6)  { left: 67%; width:1.5px;height:1.5px;animation-duration:14s; animation-delay:-8s; }
+  .hero-particles span:nth-child(7)  { left: 78%; width:2px;  height:2px;  animation-duration:10s; animation-delay:-3s; }
+  .hero-particles span:nth-child(8)  { left: 88%; width:2.5px;height:2.5px;animation-duration:12s; animation-delay:-5s; }
+  @keyframes particle-rise {
+    0%   { transform: translateY(0) scale(0); opacity: 0; }
+    5%   { opacity: 1; }
+    90%  { opacity: 0.6; }
+    100% { transform: translateY(-100vh) scale(1.8); opacity: 0; }
+  }
+
+  /* ====== SECTION TAG SHIMMER ====== */
+  .section-tag {
+    position: relative; overflow: hidden;
+    cursor: default;
+  }
+  .section-tag::after {
+    content: '';
+    position: absolute; top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(245,158,11,0.35), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  @keyframes shimmer { 0%,100%{left:-100%} 50%{left:140%} }
+
+  /* ====== MONITOR FRAME ====== */
+  .monitor-frame {
+    background: #0d0d0d;
+    border-radius: 14px;
+    border: 1px solid rgba(245,158,11,0.18);
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 24px 64px rgba(0,0,0,0.55);
+    transition: box-shadow .3s, border-color .3s;
+  }
+  .monitor-frame:hover {
+    border-color: rgba(245,158,11,0.35);
+    box-shadow: 0 0 0 1px rgba(245,158,11,0.08), 0 32px 80px rgba(0,0,0,0.6), 0 0 40px rgba(245,158,11,0.06);
+  }
+  .monitor-bar {
+    display: flex; align-items: center; gap: 7px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .mdot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .monitor-label {
+    flex: 1; text-align: center;
+    font-size: 11px; color: rgba(168,162,158,0.5);
+    font-family: 'DM Mono', 'Courier New', monospace;
+    letter-spacing: .04em;
+  }
+  .monitor-screen { overflow: hidden; }
+  .monitor-screen img { width: 100%; display: block; transition: transform .4s ease; }
+  .monitor-frame:hover .monitor-screen img { transform: scale(1.02); }
+
+  /* ====== BENTO STAGGER ====== */
+  .bento-grid .bento-card:nth-child(1) { transition-delay: .05s; }
+  .bento-grid .bento-card:nth-child(2) { transition-delay: .10s; }
+  .bento-grid .bento-card:nth-child(3) { transition-delay: .15s; }
+  .bento-grid .bento-card:nth-child(4) { transition-delay: .20s; }
+  .bento-grid .bento-card:nth-child(5) { transition-delay: .25s; }
+  .bento-grid .bento-card:nth-child(6) { transition-delay: .30s; }
+  .bento-grid .bento-card:nth-child(7) { transition-delay: .35s; }
+
+  /* ====== PRICING TILT ====== */
+  .pricing-card { transform-style: preserve-3d; will-change: transform; }
+
+  /* ====== GOLD PULSE BORDER on FEATURED ====== */
+  @keyframes border-pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); }
+    50%      { box-shadow: 0 0 0 4px rgba(245,158,11,0.15); }
+  }
+  .pricing-card.featured { animation: border-pulse 3s ease-in-out infinite; }
+
+  /* ====== MOBILE REDESIGN ====== */
+  @media (max-width: 768px) {
+    /* Hide chart on mobile — too small to read */
+    .chart-wrap { display: none; }
+
+    /* Hero tighter */
+    .hero { padding: 100px 20px 60px; }
+    h1 { font-size: clamp(40px, 11vw, 64px); letter-spacing: -1px; }
+    .hero-sub { font-size: 17px; margin-bottom: 36px; }
+    .hero-ctas { gap: 12px; }
+    .btn-primary, .btn-secondary { font-size: 16px; padding: 15px 24px; }
+
+    /* Stats 2×2 */
+    .stats-bar { grid-template-columns: repeat(2,1fr); max-width: 100%; }
+    .stat-val { font-size: 34px; }
+
+    /* Sections breathing room */
+    section { padding: 72px 20px; }
+    .section-title { font-size: clamp(28px, 8vw, 44px); }
+
+    /* Problems — 1 col */
+    .problems-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
+
+    /* How it works — hide connector line, horizontal scroll */
+    .how-grid::before { display: none; }
+    .how-grid { grid-template-columns: 1fr; gap: 24px; }
+    .step-num { width: 56px; height: 56px; font-size: 18px; }
+
+    /* Bento — 1 col, hide least-important cards */
+    .bento-grid { grid-template-columns: 1fr; gap: 12px; }
+    .bento-card.wide, .bento-card.tall { grid-column: span 1; grid-row: span 1; }
+    .bento-card:nth-child(n+6) { display: none; } /* show top 5 only */
+
+    /* Live stats — 2×2 */
+    .live-stats-grid { grid-template-columns: repeat(2,1fr) !important; }
+
+    /* Monitor frames — stack */
+    .monitor-grid { grid-template-columns: 1fr !important; }
+
+    /* Backtest grid */
+    .backtest-grid { grid-template-columns: 1fr; gap: 32px; }
+    .backtest-stats { grid-template-columns: 1fr 1fr; }
+    .bt-val { font-size: 28px; }
+
+    /* Control table — horizontal scroll */
+    .control-section .container { padding: 0; }
+    .control-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 0 20px 12px; }
+    .control-table { min-width: 520px; font-size: 13px; }
+    .control-table th, .control-table td { padding: 14px 14px; }
+
+    /* Pricing — stack, reorder featured first */
+    .pricing-grid-4 { grid-template-columns: 1fr !important; gap: 16px !important; }
+    .pricing-card.featured { order: -1; }
+    .pricing-price { font-size: 52px !important; }
+
+    /* Registration form */
+    #regForm input, #regForm button { font-size: 16px; } /* prevent iOS zoom */
+
+    /* Video full width */
+    #video .container { padding: 0 16px; }
+
+    /* FAQ font */
+    .faq-q span { font-size: 17px; }
+    .faq-a p { font-size: 16px; }
+
+    /* Footer */
+    .footer-inner { flex-direction: column; text-align: center; gap: 16px; }
+    .footer-links { justify-content: center; }
+
+    /* CTA section */
+    .cta-section { padding: 80px 20px; }
+    .cta-section h2 { font-size: clamp(32px, 9vw, 52px); }
+    .cta-section p { font-size: 17px; }
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: clamp(36px, 12vw, 52px); }
+    .hero-ctas { flex-direction: column; align-items: center; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    .stats-bar { grid-template-columns: 1fr 1fr; }
+    .stat-val { font-size: 28px; }
+    .backtest-stats { grid-template-columns: 1fr; }
+    .cta-group { flex-direction: column; align-items: center; }
+    .cta-group a { width: 100%; justify-content: center; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *, .reveal, .btn-primary, .btn-secondary { transition: none !important; animation: none !important; }
+    .hero-particles { display: none; }
   }
 </style>
 </head>
@@ -361,6 +535,10 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
+  <div class="hero-particles" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
   <div class="hero-badge">
     <div class="badge-dot"></div>
     Đang hoạt động 24/7 — MetaTrader 4
@@ -654,7 +832,7 @@
     </div>
 
     <!-- Stats live -->
-    <div class="reveal reveal-delay-1" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px;">
+    <div class="reveal reveal-delay-1 live-stats-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px;">
       <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:16px;padding:24px;text-align:center;transition:all .3s;" onmouseover="this.style.borderColor='var(--border)'" onmouseout="this.style.borderColor='var(--border2)'">
         <div style="font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;">Tổng lợi nhuận</div>
         <div style="font-size:32px;font-weight:700;color:#34D399;">+$X,XXX</div>
@@ -682,13 +860,43 @@
     <!-- MyFxBook / FxBlue embed hoặc placeholder -->
     <div class="reveal reveal-delay-2" style="background:var(--bg2);border:1px solid var(--border2);border-radius:20px;overflow:hidden;">
       <!-- THAY bằng iframe MyFxBook/FxBlue khi có -->
-      <div style="padding:32px;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-          <img src="image/image-1.jpg" alt="Live account chart 1" style="width:100%;border-radius:12px;border:1px solid var(--border);display:block;">
-          <img src="image/image-2.jpg" alt="Live account chart 2" style="width:100%;border-radius:12px;border:1px solid var(--border);display:block;">
+      <div style="padding:28px;">
+        <div class="monitor-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div class="monitor-frame">
+            <div class="monitor-bar">
+              <span class="mdot" style="background:#FF5F56"></span>
+              <span class="mdot" style="background:#FEBC2E"></span>
+              <span class="mdot" style="background:#28C840"></span>
+              <span class="monitor-label">XAU/USD M15 — Live Account</span>
+            </div>
+            <div class="monitor-screen">
+              <img src="image/image-1.jpg" alt="Live account equity curve">
+            </div>
+          </div>
+          <div class="monitor-frame">
+            <div class="monitor-bar">
+              <span class="mdot" style="background:#FF5F56"></span>
+              <span class="mdot" style="background:#FEBC2E"></span>
+              <span class="mdot" style="background:#28C840"></span>
+              <span class="monitor-label">Trade History — DCA Bot</span>
+            </div>
+            <div class="monitor-screen">
+              <img src="image/image-2.jpg" alt="Live account trade history">
+            </div>
+          </div>
         </div>
         <div style="margin-top:16px;">
-          <img src="image/image-3.jpg" alt="Live account chart 3" style="width:100%;border-radius:12px;border:1px solid var(--border);display:block;">
+          <div class="monitor-frame">
+            <div class="monitor-bar">
+              <span class="mdot" style="background:#FF5F56"></span>
+              <span class="mdot" style="background:#FEBC2E"></span>
+              <span class="mdot" style="background:#28C840"></span>
+              <span class="monitor-label">Performance Report — MetaTrader 4</span>
+            </div>
+            <div class="monitor-screen">
+              <img src="image/image-3.jpg" alt="Live account performance report">
+            </div>
+          </div>
         </div>
       </div>
       <!--
@@ -762,6 +970,7 @@
       <p class="section-sub" style="margin:0 auto;">Chỉ cần đặt 1 lệnh pending trên chart là bot hiểu và thực thi ngay lập tức.</p>
     </div>
     <div class="reveal reveal-delay-1">
+      <div class="control-table-wrap">
       <table class="control-table">
         <thead>
           <tr>
@@ -803,6 +1012,7 @@
           </tr>
         </tbody>
       </table>
+      </div><!-- /control-table-wrap -->
     </div>
   </div>
 </section>
@@ -826,7 +1036,7 @@
     </div>
 
     <!-- 4 pricing cards -->
-    <div class="reveal reveal-delay-2" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;">
+    <div class="reveal reveal-delay-2 pricing-grid-4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;">
 
       <!-- MONTHLY -->
       <div class="pricing-card" style="position:relative;">
@@ -1055,6 +1265,36 @@
   }, { threshold: 0.5 });
   var statsBar = document.querySelector('.stats-bar');
   if(statsBar) statsIO.observe(statsBar);
+
+  // Pricing card tilt effect
+  document.querySelectorAll('.pricing-card').forEach(function(card){
+    card.addEventListener('mousemove', function(e){
+      var r = card.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width  - 0.5;
+      var y = (e.clientY - r.top)  / r.height - 0.5;
+      card.style.transform = 'perspective(600px) rotateY(' + (x*8) + 'deg) rotateX(' + (-y*8) + 'deg) translateY(-6px)';
+    });
+    card.addEventListener('mouseleave', function(){
+      card.style.transform = '';
+      card.style.transition = 'transform .4s ease';
+    });
+    card.addEventListener('mouseenter', function(){
+      card.style.transition = 'transform .1s ease';
+    });
+  });
+
+  // Bento cards individual stagger reveal
+  (function(){
+    var bentoIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('visible');
+          bentoIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.bento-card').forEach(function(c){ bentoIO.observe(c); });
+  })();
 
   // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(function(q){
